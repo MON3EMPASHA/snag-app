@@ -1,0 +1,31 @@
+.splash-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.s-letter {
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.snag-text {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-top: 30px;
+  letter-spacing: 6px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+  
