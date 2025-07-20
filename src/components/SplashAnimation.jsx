@@ -12,13 +12,13 @@ export default function SplashAnimation() {
         className="s-letter"
       >
         <motion.path
-          // This path draws a more accurate 'S' shape
-          d="M90,30 C90,10 30,10 30,40 C30,60 90,60 90,80 C90,110 30,110 30,90"
+          // Blocky 'S' with three horizontal bars and two vertical gaps
+          d="M30,30 H90 M30,60 H90 M30,90 H90 M30,30 V60 M90,60 V90"
           fill="transparent"
           stroke="#fff"
-          strokeWidth="8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          strokeWidth="10"
+          strokeLinecap="square"
+          strokeLinejoin="miter"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
           transition={{ 
