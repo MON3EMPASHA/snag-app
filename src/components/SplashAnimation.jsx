@@ -12,7 +12,8 @@ export default function SplashAnimation() {
         className="s-letter"
       >
         <motion.path
-          d="M25,25 C75,25 25,60 75,60 C25,60 75,95 25,95"
+          // This path draws a more accurate 'S' shape
+          d="M90,30 C90,10 30,10 30,40 C30,60 90,60 90,80 C90,110 30,110 30,90"
           fill="transparent"
           stroke="#fff"
           strokeWidth="8"
