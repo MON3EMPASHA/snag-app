@@ -71,16 +71,27 @@ export default function SplashAnimation() {
         {/* SNAG text */}
         <motion.div
           className="snag-text"
-          initial={{ opacity: 0, y: -200 }}
-          animate={{ opacity: 1, scale: 1, y: -300 }}
-          transition={{
-            delay: 2.2,
-            duration: 0.8,
-            ease: 'easeOut'
-          }}
+          style={{ display: "flex", gap: "0.1em", y: -300 }}
         >
-          SNAG
-        </motion.div>
+            {["S", "N", "A", "G"].map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: 2.2 + index * 0.3, // Stagger: each letter delayed
+                  duration: 0.5,
+                  ease: "easeOut",
+                }}
+                className="snag-letter"
+                style={{ "--index": index }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
+
+
       </div>
   );
 }
