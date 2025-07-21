@@ -4,6 +4,7 @@ import './SplashAnimation.css';
 export default function SplashAnimation() {
   const screenW = window.innerWidth;
   const screenH = window.innerHeight;
+  const snagTextY = screenW < 600 ? -280 : -305; // Responsive y value
 
   return (
     <div className="splash-container">
@@ -48,7 +49,7 @@ export default function SplashAnimation() {
 
           {/* Left vertical line */}
           <motion.line
-            x1={screenW / 2 - 60} y1={0} x2={screenW / 2 - 60} y2={screenH}
+            x1={screenW / 2 - 60} y1={0-100} x2={screenW / 2 - 60} y2={screenH+100}
             stroke="#fff"
             strokeWidth="10"
             strokeLinecap="square"
@@ -59,7 +60,7 @@ export default function SplashAnimation() {
 
           {/* Right vertical line */}
           <motion.line
-            x1={screenW / 2 + 60} y1={0} x2={screenW / 2 + 60} y2={screenH}
+            x1={screenW / 2 + 60} y1={0-100} x2={screenW / 2 + 60} y2={screenH+100}
             stroke="#fff"
             strokeWidth="10"
             strokeLinecap="square"
@@ -71,7 +72,7 @@ export default function SplashAnimation() {
         {/* SNAG text */}
         <motion.div
           className="snag-text"
-          style={{ display: "flex", gap: "0.1em", y: -300 }}
+          style={{ display: "flex", gap: "0.1em", y: snagTextY }}
         >
             {["S", "N", "A", "G"].map((char, index) => (
               <motion.span
