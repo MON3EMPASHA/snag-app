@@ -2,61 +2,79 @@ import { motion } from 'framer-motion';
 import './SplashAnimation.css';
 
 export default function SplashAnimation() {
-  const strokeProps = {
-    fill: 'transparent',
-    stroke: '#fff',
-    strokeWidth: 10,
-    strokeLinecap: 'square',
-    strokeLinejoin: 'miter',
-    initial: { pathLength: 0, opacity: 0 },
-    animate: { pathLength: 1, opacity: 1 },
-  };
+  const screenW = window.innerWidth;
+  const screenH = window.innerHeight;
 
   return (
     <div className="splash-container">
-      <motion.svg width="120" height="120" viewBox="0 0 120 120" className="s-letter">
-
+      <motion.svg
+        className="s-fullscreen-svg"
+        viewBox={`0 0 ${screenW} ${screenH}`}
+        preserveAspectRatio="xMidYMid meet"
+      >
         {/* Top horizontal line */}
-        <motion.path
-          d="M30,30 H90"
-          {...strokeProps}
-          transition={{ delay: 0.0, duration: 0.4 }}
+        <motion.line
+          x1={0} y1={screenH * 0.3} x2={screenW} y2={screenH * 0.3}
+          stroke="#fff"
+          strokeWidth="10"
+          strokeLinecap="square"
+          initial={{ x1: 0, x2: screenW }}
+          animate={{ x1: screenW / 2 - 60, x2: screenW / 2 + 60 }}
+          transition={{ delay: 0.0, duration: 0.5 }}
         />
 
         {/* Middle horizontal line */}
-        <motion.path
-          d="M30,60 H90"
-          {...strokeProps}
-          transition={{ delay: 0.4, duration: 0.4 }}
+        <motion.line
+          x1={0} y1={screenH * 0.5} x2={screenW} y2={screenH * 0.5}
+          stroke="#fff"
+          strokeWidth="10"
+          strokeLinecap="square"
+          initial={{ x1: 0, x2: screenW }}
+          animate={{ x1: screenW / 2 - 60, x2: screenW / 2 + 60 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
         />
 
         {/* Bottom horizontal line */}
-        <motion.path
-          d="M30,90 H90"
-          {...strokeProps}
-          transition={{ delay: 0.8, duration: 0.4 }}
+        <motion.line
+          x1={0} y1={screenH * 0.7} x2={screenW} y2={screenH * 0.7}
+          stroke="#fff"
+          strokeWidth="10"
+          strokeLinecap="square"
+          initial={{ x1: 0, x2: screenW }}
+          animate={{ x1: screenW / 2 - 60, x2: screenW / 2 + 60 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
         />
 
-        {/* Left vertical (connects top to middle) */}
-        <motion.path
-          d="M30,30 V60"
-          {...strokeProps}
-          transition={{ delay: 1.2, duration: 0.4 }}
+        {/* Left vertical line */}
+        <motion.line
+          x1={screenW / 2 - 60} y1={0} x2={screenW / 2 - 60} y2={screenH}
+          stroke="#fff"
+          strokeWidth="10"
+          strokeLinecap="square"
+          initial={{ y1: 0, y2: screenH, opacity: 0 }}
+          animate={{ y1: screenH * 0.3, y2: screenH * 0.5, opacity: 1 }}
+          transition={{ delay: 1.3, duration: 0.5 }}
         />
 
-        {/* Right vertical (connects middle to bottom) */}
-        <motion.path
-          d="M90,60 V90"
-          {...strokeProps}
-          transition={{ delay: 1.6, duration: 0.4 }}
+        {/* Right vertical line */}
+        <motion.line
+          x1={screenW / 2 + 60} y1={0} x2={screenW / 2 + 60} y2={screenH}
+          stroke="#fff"
+          strokeWidth="10"
+          strokeLinecap="square"
+          initial={{ y1: 0, y2: screenH, opacity: 0 }}
+          animate={{ y1: screenH * 0.5, y2: screenH * 0.7, opacity: 1 }}
+          transition={{ delay: 1.6, duration: 0.5 }}
         />
+
+
       </motion.svg>
 
-      {/* SNAG text appears afterward */}
+      {/* SNAG text appears */}
       <motion.div
         className="snag-text"
-        initial={{ opacity: 0, x: 30, scale: 0.8 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.8, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{
           delay: 2.2,
           duration: 0.8,
